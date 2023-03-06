@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Net;
 
-namespace APITestingSample
+namespace APITestingSample.Tests
 {
     public class PetTest : BaseTest
     {
@@ -64,9 +64,9 @@ namespace APITestingSample
             Assert.That(response.GetServiceResponse().Message, Is.EqualTo("Pet not found"));
 
             var pet = new Pet() { Id = id };
-            response = PostRequest<Pet>("/pet", pet);
+            response = PostRequest("/pet", pet);
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            
+
             return response;
         }
 

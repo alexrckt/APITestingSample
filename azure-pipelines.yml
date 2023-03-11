@@ -8,6 +8,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  DBUID: $(UID)
+  DBPWD: $(PWD)
 
 steps:
 - task: NuGetToolInstaller@1
@@ -31,3 +33,4 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: test
+    arguments: '--params=uid=$(DBUID);pwd=$(DBPWD)'

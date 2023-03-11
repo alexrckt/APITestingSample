@@ -29,6 +29,7 @@ namespace APITestingSample.Tests
                 "WHERE departments.department_name = 'IT'";
 
             var result = helper.GetQueryResult(query);
+            Assert.That(result.Rows.Count > 0, "Couldn't get query results.");
 
             foreach (DataRow row in result.Rows)
             {
@@ -45,6 +46,7 @@ namespace APITestingSample.Tests
                 "LEFT JOIN dependents ON employees.employee_id = dependents.employee_id";
 
             var result = helper.GetQueryResult(query);
+            Assert.That(result.Rows.Count > 0, "Couldn't get query results.");
 
             foreach (DataRow row in result.Rows)
             {
@@ -65,6 +67,7 @@ namespace APITestingSample.Tests
                 "LEFT JOIN employees managers ON employees.manager_id = managers.employee_id";
 
             var result = helper.GetQueryResult(query);
+            Assert.That(result.Rows.Count > 0, "Couldn't get query results.");
 
             foreach (DataRow row in result.Rows)
             {

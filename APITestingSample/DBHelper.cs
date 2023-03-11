@@ -13,9 +13,12 @@ namespace APITestingSample
     {
         public DataTable GetQueryResult(String vQuery)
         {
+            string uid = TestContext.Parameters["uid"];
+            string pwd = TestContext.Parameters["pwd"];
+
             MySqlConnection connection;
             DataSet ds = new DataSet();
-            var connectionString = "server=sql7.freemysqlhosting.net;uid=UID;pwd=PWD;database=sql7602927";
+            var connectionString = $"server=sql7.freemysqlhosting.net;uid={uid};pwd={pwd};database=sql7602927";
 
             try
             {
